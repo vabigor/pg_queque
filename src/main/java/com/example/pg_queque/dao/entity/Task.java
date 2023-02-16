@@ -1,9 +1,10 @@
-package com.example.pg_queque.entity;
+package com.example.pg_queque.dao.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.Instant;
 import java.util.Objects;
@@ -14,8 +15,10 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer status;
-    private Integer attempt;
+    @NotNull
+    private Integer status = 0;
+    @NotNull
+    private Integer attempt = 0;
     private Instant delayedTo;
     private String errorText;
 
